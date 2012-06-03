@@ -19,6 +19,13 @@ Couchbase Server packages for Mac OS X 64-bit Intel may be found on the
 
 We would welcome contributions of other brew packages.
 
+You will notice in this repository, the master branch has been orphaned
+intentionally, leaving only this readme.  There are two other branches,
+the "stable" branch and the "preview" branch.  The stable branch
+has formulae for the current, stable releases.  The preview branch has
+previews of upcoming releases.
+
+
 Have an Issue?
 --------------
 Please report it on the [issue tracker][cblibcouchbaseissues].
