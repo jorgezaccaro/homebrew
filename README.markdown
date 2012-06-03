@@ -23,6 +23,6 @@ Have an Issue?
 --------------
 Please report it on the [issue tracker][cblibcouchbaseissues].
 
-[cbdevelop][http://www.couchbase.com/develop]
-[cblibcouchbaseissues][http://www.couchbase.com/issues/browse/CCBC]
-[cbdownload][http://www.couchbase.com/download]
+[cbdevelop]:http://www.couchbase.com/develop
+[cblibcouchbaseissues]:http://www.couchbase.com/issues/browse/CCBC
+[cbdownload]:http://www.couchbase.com/download
