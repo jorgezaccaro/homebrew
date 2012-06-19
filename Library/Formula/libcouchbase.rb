@@ -2,8 +2,8 @@ require 'formula'
 
 class Libcouchbase < Formula
   homepage 'http://couchbase.com/develop/c/next'
-  url 'http://packages.couchbase.com/clients/c/libcouchbase-1.1.0dp6.tar.gz'
-  md5 '1573e650d551dfbd9199d090af6a6aa8'
+  url 'http://packages.couchbase.com/clients/c/libcouchbase-1.1.0dp7.tar.gz'
+  md5 '0b13a12903ee828207bfa6aed4328568'
 
   depends_on 'libevent'
   depends_on 'libvbucket'
