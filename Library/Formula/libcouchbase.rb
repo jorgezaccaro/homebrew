@@ -2,11 +2,10 @@ require 'formula'
 
 class Libcouchbase < Formula
   homepage 'http://couchbase.com/develop/c/next'
-  url 'http://packages.couchbase.com/clients/c/libcouchbase-1.1.0dp9.tar.gz'
-  md5 'af99b4aef701ad11a46b6f1ee43919ae'
+  url 'http://packages.couchbase.com/clients/c/libcouchbase-2.0.0beta.tar.gz'
+  md5 'a0c98ff2ee5c017eae18fea907936fec'
 
   depends_on 'libevent'
-  depends_on 'libvbucket'
 
   def install
     system "./configure", "--disable-debug",
