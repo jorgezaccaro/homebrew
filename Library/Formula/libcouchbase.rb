@@ -10,8 +10,8 @@ end
 
 class Libcouchbase < Formula
   homepage 'http://couchbase.com/develop/c/next'
-  url 'http://packages.couchbase.com/clients/c/libcouchbase-2.0.0beta2.tar.gz'
-  md5 'df257b0f11b6bf787108d5f9ab91c439'
+  url 'http://packages.couchbase.com/clients/c/libcouchbase-2.0.0beta3.tar.gz'
+  md5 '47ba7864f049fb41e6b2f7bc6d857d11'
 
   depends_on 'libevent' unless without_libevent_plugin?
   depends_on 'libev' if with_libev_plugin?
