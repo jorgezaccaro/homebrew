@@ -25,6 +25,20 @@ the "stable" branch and the "preview" branch.  The stable branch
 has formulae for the current, stable releases.  The preview branch has
 previews of upcoming releases.
 
+Quick Installation Guide
+------------------------
+
+To install **stable** version just make sure you homebrew repository is
+up to date and install `libcouchbase` formula.
+
+    $ brew update
+    $ brew install libcouchbase
+
+
+For **preview** version, you should use this fork and install from
+"preview" branch:
+
+    $ brew install https://github.com/couchbase/homebrew/raw/preview/Library/Formula/libcouchbase.rb
 
 Have an Issue?
 --------------
