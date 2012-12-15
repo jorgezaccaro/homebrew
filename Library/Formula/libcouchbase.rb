@@ -9,19 +9,15 @@ def without_libevent_plugin?
 end
 
 class Libcouchbase < Formula
-  homepage 'http://couchbase.com/develop/c/next'
-  url 'http://packages.couchbase.com/clients/c/libcouchbase-2.0.0beta3.tar.gz'
-  md5 '47ba7864f049fb41e6b2f7bc6d857d11'
+  homepage 'http://couchbase.com/develop/c/current'
+  url 'http://packages.couchbase.com/clients/c/libcouchbase-2.0.1.tar.gz'
+  sha1 '51df1b3099a42cdcb8bf6b46d802791828d7e1d7'
 
-  depends_on 'libevent' unless without_libevent_plugin?
-  depends_on 'libev' if with_libev_plugin?
+  option 'with-libev-plugin', 'Build libev IO plugin (will pull libev dependency)'
+  option 'without-libevent-plugin', 'Do not build libevent plugin (will remove libevent dependency)'
 
-  def options
-    [
-      ['--with-libev-plugin', 'Build libev IO plugin'],
-      ['--without-libevent-plugin', 'Do not build libev IO plugin']
-    ]
-  end
+  depends_on 'libev' if build.include?('with-libev-plugin')
+  depends_on 'libevent' unless build.include?('without-libevent-plugin')
 
   def install
     system "./configure", "--disable-debug",
