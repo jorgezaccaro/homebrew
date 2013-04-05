@@ -13,12 +13,13 @@ class Requirement
   def initialize(*tags)
     @tags = tags.flatten.compact
     @tags << :build if self.class.build
+    @name ||= infer_name
   end
 
   # The message to show when the requirement is not met.
   def message; "" end
 
-  # Overriding #satisfied? is deprepcated.
+  # Overriding #satisfied? is deprecated.
   # Pass a block or boolean to the satisfied DSL method instead.
   def satisfied?
     result = self.class.satisfy.yielder do |proc|
@@ -55,12 +56,19 @@ class Requirement
 
   private
 
+  def infer_name
+    klass = self.class.to_s
+    klass.sub!(/(Dependency|Requirement)$/, '')
+    klass.sub!(/^(\w+::)*/, '')
+    klass.downcase
+  end
+
   def infer_env_modification(o)
     case o
     when Pathname
       self.class.env do
         unless ENV["PATH"].split(":").include?(o.parent.to_s)
-          append("PATH", o.parent, ":")
+          ENV.append("PATH", o.parent, ":")
         end
       end
     end
