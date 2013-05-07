@@ -13,9 +13,9 @@ class Go < Formula
   option 'cross-compile-common', "Build the cross-compilers and runtime support for darwin, linux and windows"
 
   devel do
-    url 'https://go.googlecode.com/files/go1.1beta1.src.tar.gz'
-    version '1.1beta1'
-    sha1 '73dacb991b3dbf50cf45be0ae9bfef52662eae4d'
+    url 'https://go.googlecode.com/files/go1.1rc2.src.tar.gz'
+    version '1.1rc2'
+    sha1 '17d5dffb477c204d4e218ad53d81d0ac98d1dab6'
   end
 
   unless build.stable?
@@ -26,8 +26,8 @@ class Go < Formula
 
   def install
     # install the completion scripts
-    (prefix/'etc/bash_completion.d').install 'misc/bash/go' => 'go-completion.bash'
-    (share/'zsh/site-functions').install 'misc/zsh/go' => '_go'
+    bash_completion.install 'misc/bash/go' => 'go-completion.bash'
+    zsh_completion.install 'misc/zsh/go' => '_go'
 
     if build.include? 'cross-compile-all'
       targets = [
