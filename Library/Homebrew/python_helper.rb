@@ -60,13 +60,13 @@ def python_helper(options={:allowed_major_versions => [2, 3]}, &block)
       # In order to install into the Cellar, the dir must exist and be in the
       # PYTHONPATH. This will be executed in the context of the formula
       # so that lib points to the HOMEBREW_PREFIX/Cellar/<formula>/<version>/lib
-      puts "brew: Prepending to PYTHONPATH: #{py.site_packages}" if ARGV.verbose?
+      puts "brew: setting PYTHONPATH to: #{py.site_packages}" if ARGV.verbose?
       mkdir_p py.site_packages
-      ENV.prepend 'PYTHONPATH', py.site_packages, ':'
+      ENV['PYTHONPATH'] = py.site_packages
       ENV['PYTHON'] = py.binary
-      ENV.prepend 'CMAKE_INCLUDE_PATH', py.incdir, ':'
-      ENV.prepend 'PKG_CONFIG_PATH', py.pkg_config_path, ':' if py.pkg_config_path
-      ENV.prepend 'PATH', py.binary.dirname, ':' unless py.from_osx?
+      ENV.prepend_path 'CMAKE_INCLUDE_PATH', py.incdir
+      ENV.prepend_path 'PKG_CONFIG_PATH', py.pkg_config_path if py.pkg_config_path
+      ENV.prepend_path 'PATH', py.binary.dirname unless py.from_osx?
       #Note: Don't set LDFLAGS to point to the Python.framework, because
       #      it breaks builds (for example scipy.)
 
